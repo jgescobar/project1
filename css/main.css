@@ -15,7 +15,7 @@ section {
   height: 600px;
   margin: -300px 0 0 -300px;
 
-  background: url("../images/daisyPic.jpg") no-repeat 100%;
+  background: url("../images/picdaisy.jpg") no-repeat 100%;
 }
 
 td {
@@ -39,8 +39,8 @@ td {
 }
 
 
-.cat { background-image: url("../images/fiestyCat.jpg"); }
-.dog { background-image: url("../images/scaredPug.jpg"); }
+.cat { background-image: url("../images/fiestykitty.jpg"); }
+.dog { background-image: url("../images/pugsterscared.jpg"); }
 
 .cover {
   position: absolute;
@@ -96,9 +96,9 @@ td {
   text-transform: uppercase;
 }
 
-/*.hidden {
+.hidden {
   visibility: hidden;
-}*/
+}
 
 .none {
   display: none;
