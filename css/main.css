@@ -1,0 +1,105 @@
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  width: 600px;
+  height: 600px;
+  margin: -300px 0 0 -300px;
+
+  background: url("../images/daisyPic.jpg") no-repeat 100%;
+}
+
+td {
+  cursor: pointer;
+}
+
+.board {
+  width: 550px;
+  height: 550px;
+  margin: 0 auto;
+
+  border-spacing: 20px;
+}
+
+.board td {
+  position: relative;
+
+  border: 3px solid white;
+  background-color: rgba(0,0,0,0.15);
+  border-spacing: 10px;
+}
+
+
+.cat { background-image: url("../images/fiestyCat.jpg"); }
+.dog { background-image: url("../images/scaredPug.jpg"); }
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.cover h1 {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: red;
+  text-align: center;
+  z-index: 5;
+  width: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  font-size: 100px;
+  font-family: sans-serif;
+  text-shadow: 3px 3px 3px #000;
+}
+
+.panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 50px;
+
+  text-align: center;
+}
+
+.panel button {
+  margin: 0 20px;
+  padding: 5px 20px;
+  border: 1px solid green;
+  border-radius: 20px;
+
+  background-color: white;
+
+  -moz-box-shadow: 0px 1px 0px 0px #1c1b18;
+  -webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
+  box-shadow: 0px 1px 0px 0px #1c1b18;
+
+  color: green;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*.hidden {
+  visibility: hidden;
+}*/
+
+.none {
+  display: none;
+}
