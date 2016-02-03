@@ -3,97 +3,99 @@
 <head>
   <meta charset="utf-8">
   <title>Connect Cuatro</title>
-
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <!-- <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 <body>
-  <section id="home-page">
-    <div id="panel-welcome" class="panel">
-      <button id="start">Lets play!</button>
-    </div>
-  </section>
-  <section id="cat-dog-page">
-
-  </section>
-  <section id="game-page">
-    <div id="Hola" class="cover cover-dark">
-      <h1 class="animated zoomIn">
-        <span class="Connect">Connect</span><br>
-        <span class="Cuatro">Cuatro</span><br>
-
-      </h1>
-    </div>
-    <div id="replay-cover" class="cover cover-dark none">
-      <h1 class="animated zoomIn">
-        <span class="show-first infinite swing animated">Yay!!!</span><br>
-      </h1>
-    </div>
+  <section id="gameboard">
     <table id="board" class="board">
       <tr>
-        <td id="cell0"></td>
-        <td id="cell1"></td>
-        <td id="cell2"></td>
-        <td id="cell3"></td>
-        <td id="cell4"></td>
-        <td id="cell5"></td>
-        <td id="cell6"></td>
+        <td id="cell0_0"></td>
+        <td id="cell0_1"></td>
+        <td id="cell0_2"></td>
+        <td id="cell0_3"></td>
+        <td id="cell0_4"></td>
+        <td id="cell0_5"></td>
+        <td id="cell0_6"></td>
       </tr>
       <tr>
-        <td id="cell7"></td>
-        <td id="cell8"></td>
-        <td id="cell9"></td>
-        <td id="cell10"></td>
-        <td id="cell11"></td>
-        <td id="cell12"></td>
-        <td id="cell13"></td>
+        <td id="cell1_0"></td>
+        <td id="cell1_1"></td>
+        <td id="cell1_2"></td>
+        <td id="cell1_3"></td>
+        <td id="cell1_4"></td>
+        <td id="cell1_5"></td>
+        <td id="cell1_6"></td>
       </tr>
       <tr>
-        <td id="cell14"></td>
-        <td id="cell15"></td>
-        <td id="cell16"></td>
-        <td id="cell17"></td>
-        <td id="cell18"></td>
-        <td id="cell19"></td>
-        <td id="cell20"></td>
+        <td id="cell2_0"></td>
+        <td id="cell2_1"></td>
+        <td id="cell2_2"></td>
+        <td id="cell2_3"></td>
+        <td id="cell2_4"></td>
+        <td id="cell2_5"></td>
+        <td id="cell2-6"></td>
       </tr>
       <tr>
-        <td id="cell21"></td>
-        <td id="cell22"></td>
-        <td id="cell23"></td>
-        <td id="cell24"></td>
-        <td id="cell25"></td>
-        <td id="cell26"></td>
-        <td id="cell27"></td>
+        <td id="cell3_0"></td>
+        <td id="cell3_1"></td>
+        <td id="cell3_2"></td>
+        <td id="cell3_3"></td>
+        <td id="cell3_4"></td>
+        <td id="cell3_5"></td>
+        <td id="cell3_6"></td>
       </tr>
       <tr>
-        <td id="cell28"></td>
-        <td id="cell29"></td>
-        <td id="cell30"></td>
-        <td id="cell31"></td>
-        <td id="cell32"></td>
-        <td id="cell33"></td>
-        <td id="cell34"></td>
+        <td id="cell4_0"></td>
+        <td id="cell4_1"></td>
+        <td id="cell4_2"></td>
+        <td id="cell4_3"></td>
+        <td id="cell4_4"></td>
+        <td id="cell4_5"></td>
+        <td id="cell4_6"></td>
       </tr>
       <tr>
-        <td id="cell35"></td>
-        <td id="cell36"></td>
-        <td id="cell37"></td>
-        <td id="cell38"></td>
-        <td id="cell39"></td>
-        <td id="cell40"></td>
-        <td id="cell41"></td>
+        <td id="cell5_0"></td>
+        <td id="cell5_1"></td>
+        <td id="cell5_2"></td>
+        <td id="cell5_3"></td>
+        <td id="cell5_4"></td>
+        <td id="cell5_5"></td>
+        <td id="cell5_6"></td>
       </tr>
     </table>
-    <!-- <div id="panel-game" class="panel hidden"> -->
-      <button id="restart">Play Again?</button>
+</section>
+  <section id="home-page">
+    <div id="Hola" class="cover first-page">
+      <h1 class="animated zoomIn">
+        <span class="Connect">Connect</span><br>
+        <span class="Connect"></span><br>
+        <span class="Connect">(*_*)</span><br>
+        <span class="Cuatro">Cuatro</span><br>
+      </h1>
+      <button id="start">Let's play!</button>
+      <div id="panel-welcome" class="panel">
+      </div>
     </div>
   </section>
 
+  <section id="cat-dog-page">
+  </section>
+
+  <section id="winner-page">
+    <div class="cover">
+      <h1 class="last-page">
+        <span class="congrats">Yay!!!</span><br>
+      </h1>
+   <div id="panel-game" class="panel hidden">
+      <button id="restart">Play Again?</button>
+    </div>
+    </div>
+    </section>
   <audio id="meow"   src="sounds/CatMeow.mp3"></audio>
   <audio id="bark" src="sounds/DogBarking.mp3"></audio>
 
-  <script src="js/main.js"></script>
+  <script src="js/help.js"></script>
 </body>
 </html>
