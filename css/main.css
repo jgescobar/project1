@@ -17,11 +17,11 @@ section {
 }
 
 #gameboard {
-  background: url("../images/picdaisy.jpg") no-repeat 100%;
+  background: url("../images/backgroundpic.jpg") no-repeat 100%;
 }
 
 #cat-dog-page {
-  background: url(../images/catdog.jpg) no-repeat 100%;
+  background: url("../images/secondpic.jpg") no-repeat 100%;
   display: none;
   position: absolute;
   top: 40%;
@@ -52,7 +52,7 @@ td {
 
 .catImg { background: url(../images/fiestykitty.jpg) }
 
-.dogImg { background: url(../images/pugsterscared.jpg) }
+.dogImg { background: url(../images/pug.jpeg) }
 
 .cover {
   position: absolute;

@@ -87,7 +87,7 @@ function move(columnIndex) {
   if (currentPlayer === 1) {
     var img = "url(images/fiestykitty.jpg)";
   } else {
-    img = "url(images/scaredPug2.jpeg)";
+    img = "url(images/pug.jpeg)";
   }
   for (var i = 5; i>=0; i -= 1) {
     if(board[columnIndex][i] === null){
