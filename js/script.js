@@ -45,29 +45,33 @@ function alternateTurn() {
 }
 
 // this is for my cat & dog images to appear
-createCat();
+// createCat();
 
-function createCat (){
 $(".cells").on("click", function(evt) {
-  console.log($(this));
-  console.log($(this).attr('id').charAt(4));
-  $(this).css("background", "url(images/fiestykitty.jpg)").css({width: "50px"}).css({height: "50px"});
-  $(".cells").off("click")
   move($(this).attr('id').charAt(4));
-  console.log("dogs turn")
-  createDog();
 });
-}
+// function createCat (){
+// $(".cells").on("click", function(evt) {
+//   // console.log($(this));
+//   // console.log($(this).attr('id').charAt(4));
+//   // $(this).css("background", "url(images/fiestykitty.jpg)").css({width: "50px"}).css({height: "50px"});
+//   // $(".cells").off("click")
+//   // console.log("dogs turn")
+//   createDog();
+// });
+// }
 
-function createDog() {
-  $(".cells").on("click", function() {
-  $(this).css("background", "url(images/scaredPug2.jpeg)").css({width: "50px"}).css({height: "50px"});
-  $(".cells").off("click")
-  move($(this).attr('id').charAt(4));
-  console.log("cats turn")
-  createCat();
-});
-}
+// function createDog() {
+//   $(".cells").on("click", function(evt) {
+//   // console.log($(this));
+//   // console.log($(this).attr('id').charAt(4));
+//   // $(this).css("background", "url(images/scaredPug2.jpeg)").css({width: "50px"}).css({height: "50px"});
+//   // $(".cells").off("click")
+//   move($(this).attr('id').charAt(4));
+//   // console.log("cats turn")
+//   createCat();
+// });
+// }
 
 // this displays the cat vs dog img once start button is clicked
 function showImage() {
@@ -101,18 +105,26 @@ function startGame() {
 
 // Places Move on Board
 function move(columnIndex) {
-  var holderID = undefined;
-  for (var i = 0; i< 6; i += 1) {
+  var lastNullCell = undefined;
+  if (currentPlayer === 1) {
+    var img = "url(images/fiestykitty.jpg)";
+  } else {
+    img = "url(images/scaredPug2.jpeg)";
+  }
+  for (var i = 5; i>=0; i -= 1) {
     // for (var x = 0; x < 7; x += 1) {
     if(board[columnIndex][i] === null){
-      holderID = i;
+      lastNullCell = i;
       break;
     }
   }
-  if (holderID === undefined) {
-    board[columnIndex][0] = currentPlayer;
-  } else {
-    board[columnIndex][holderID] = currentPlayer;
+  $('#cell'+columnIndex+"_"+lastNullCell).css("background", img).css({width: "50px"}).css({height: "50px"});
+  board[columnIndex][lastNullCell] = currentPlayer;
+  if (lastNullCell === undefined) {
+    // board[columnIndex][5] = currentPlayer;
+    alert("column full click again");
+
+    return;
   }
   alternateTurn();
  }
