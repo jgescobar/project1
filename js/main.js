@@ -1,37 +1,20 @@
 console.log("Connect Cuatro")
 
-setTimeout(function() {
-  $('h1 .animated').fadeOut()
-}, 2000)
-
-var board = [
-  "CAT", "CAT", "CAT", null, null, null, null,
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null,
-  "CAT", "CAT", "CAT", "CAT", null, null, null,
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null
-];
-
-var currentPlayer = "CAT";
-var curPage;
-
-var playerImages = ['images/fiestykitty.jpg', '../images/pugsterscared.jpg'];
-
-var won = false;
-
-var startGame = function() {
-  won = false;
-  currentPlayer = 0;
-  board = [
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null
-];
-};
+// Place Move on Board
+function move(columnIndex) {
+  var holderID;
+  for (var i = 0; i < 6; i += 1) {
+    if(board[i][columnIndex] !== null)
+      holderID = i -1;
+      break;
+    }
+  if (holderID === undefined) {
+    board[5][columnIndex] = currentPlayer;
+  } else {
+    board[holderID][columnIndex] = currentPlayer;
+  }
+  alternateTurn();
+}
 
  var move = function(idx) {
    board[idx] = currentPlayer;
@@ -45,37 +28,6 @@ var startGame = function() {
      }
    }
  };
-
-var move = function(idx) {
-  board[idx] = currentPlayer;
-}
-
-var renderBoard = function() {
-  $("#cell0").text(board[0]);
-  $("#cell1").text(board[1]);
-  $("#cell2").text(board[2]);
-  $("#cell3").text(board[3]);
-  $("#cell4").text(board[4]);
-  $("#cell5").text(board[5]);
-  $("#cell6").text(board[6]);
-  $("#cell7").text(board[7]);
-  $("#cell8").text(board[8]);
-  $("#cell9").text(board[9]);
-  $("#cell10").text(board[10]);
-  $("#cell11").text(board[11]);
-  $("#cell12").text(board[12]);
-  $("#cell13").text(board[13]);
-  $("#cell14").text(board[14]);
-  $("#cell15").text(board[15]);
-  $("#cell16").text(board[16]);
-  $("#cell17").text(board[17]);
-  $('#theDiv').prepend('<img id="theImg" src="../images/fiestykitty.jpg"/>')
-
-document.getElementById("restart")
-        .addEventListener("click", function(evt) {
-          startGame();
-          render();
-        });
 
  function resetGame () {
   cat = 0;
@@ -149,7 +101,4 @@ function render () {
   function renderArrows() {
     // hide arrows if column is full
   }
-
-
-
 
