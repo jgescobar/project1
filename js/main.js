@@ -1,47 +1,8 @@
 console.log("Connect Cuatro")
 
 // Place Move on Board
-function move(columnIndex) {
-  var holderID;
-  for (var i = 0; i < 6; i += 1) {
-    if(board[i][columnIndex] !== null)
-      holderID = i -1;
-      break;
-    }
-  if (holderID === undefined) {
-    board[5][columnIndex] = currentPlayer;
-  } else {
-    board[holderID][columnIndex] = currentPlayer;
-  }
-  alternateTurn();
-}
-
- var move = function(idx) {
-   board[idx] = currentPlayer;
-   if (gameWon()) {
-     won = true;
-   } else {
-     if (currentPlayer === 0) {
-       currentPlayer = 1;
-     } else {
-       currentPlayer = 0;
-     }
-   }
- };
-
- function resetGame () {
-  cat = 0;
-  dog = 1;
-  currentPlayer = "CAT";
-  curPage = "game-page";
-
-  render();
- }
 
 
-// // for testing only
- board[6] = 0;
- resetGame();
 
 function checkHorizontalWin () {
  for (i = 0; i < 36; i += 7) {

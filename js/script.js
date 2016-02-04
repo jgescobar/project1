@@ -44,34 +44,11 @@ function alternateTurn() {
   stateOfGame();
 }
 
-// this is for my cat & dog images to appear
-// createCat();
-
+// this is my listener and also converts "celly_x" string to number value
 $(".cells").on("click", function(evt) {
   move($(this).attr('id').charAt(4));
 });
-// function createCat (){
-// $(".cells").on("click", function(evt) {
-//   // console.log($(this));
-//   // console.log($(this).attr('id').charAt(4));
-//   // $(this).css("background", "url(images/fiestykitty.jpg)").css({width: "50px"}).css({height: "50px"});
-//   // $(".cells").off("click")
-//   // console.log("dogs turn")
-//   createDog();
-// });
-// }
 
-// function createDog() {
-//   $(".cells").on("click", function(evt) {
-//   // console.log($(this));
-//   // console.log($(this).attr('id').charAt(4));
-//   // $(this).css("background", "url(images/scaredPug2.jpeg)").css({width: "50px"}).css({height: "50px"});
-//   // $(".cells").off("click")
-//   move($(this).attr('id').charAt(4));
-//   // console.log("cats turn")
-//   createCat();
-// });
-// }
 
 // this displays the cat vs dog img once start button is clicked
 function showImage() {
@@ -121,7 +98,6 @@ function move(columnIndex) {
   $('#cell'+columnIndex+"_"+lastNullCell).css("background", img).css({width: "50px"}).css({height: "50px"});
   board[columnIndex][lastNullCell] = currentPlayer;
   if (lastNullCell === undefined) {
-    // board[columnIndex][5] = currentPlayer;
     alert("column full click again");
 
     return;
@@ -129,10 +105,7 @@ function move(columnIndex) {
   alternateTurn();
  }
 
-
-
-
-// Win Conditions
+// // Win Conditions
 // function chkWinner(board) {
 //     // Check up/down
 //     for (var y = 0; y < 3; y+= 1) {
@@ -147,35 +120,32 @@ function move(columnIndex) {
 //       }
 //     };
 
-//   // Check left/right
-    // for (var y = 0; y < 6; y+= 1) {
-    //     for ( var x = 0; x < 4; x+= 1) {
-    //       if (board[y][x] === board[y][x+1] && board[y][x] === board[y][x+2] && board[y][x] === board[y][x+3])
-    //         console.log("left/right works");
-    //             // return board[y][x];
-    //       }
-    //   };
+//    // Check left/right
+//     for (var y = 0; y < 6; y+= 1) {
+//         for ( var x = 0; x < 4; x+= 1) {
+//           if (board[y][x] === board[y][x+1] && board[y][x] === board[y][x+2] && board[y][x] === board[y][x+3])
+//             console.log("left/right works");
+//                  return board[y][x];
+//           }
+//       };
 
 //     // Check down-right
 //     for (y = 0; y < 3; y++)
 //         for (x = 0; x < 4; x++)
-//             if (chkLine(bd[y][x], bd[y+1][x+1], bd[y+2][x+2], bd[y+3][x+3]))
-//                 return bd[y][x];
+//             if (chkLine(board[y][x], board[y+1][x+1], board[y+2][x+2], board[y+3][x+3]))
+//                 return board[y][x];
 
 //     // Check down-left
 //     for (y = 3; y < 6; y++)
 //         for (x = 0; x < 4; x++)
-//             if (chkLine(bd[y][x], bd[y-1][x+1], bd[y-2][x+2], bd[y-3][x+3]))
-//                 return bd[y][x];
+//             if (chkLine(board[y][x], board[y-1][x+1], board[y-2][x+2], board[y-3][x+3]))
+//                 return board[y][x];
 
 //           return 0;
 //           chkLine();
 // }
 
-
-
-
-
+// when this function is called, it changes pages
 function render () {
   curPage === 'home-page' ? $('#home-page').show() : $('#home-page').hide();
   curPage === 'cat-dog-page' ? $('#cat-dog-page').show() : $('#cat-dog-page').hide();
