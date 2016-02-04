@@ -85,7 +85,7 @@ function startGame() {
 function move(columnIndex) {
   var lastNullCell = undefined;
   if (currentPlayer === 1) {
-    var img = "url(images/fiestykitty.jpg)";
+    var img = "url(images/fightkitty.jpg)";
   } else {
     img = "url(images/pug.jpeg)";
   }

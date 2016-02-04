@@ -124,9 +124,9 @@ td {
   text-transform: uppercase;
 }
 
-.hidden {
-  visibility: hidden;
-}
+/*.hidden {*/
+/*  visibility: hidden;
+}*/
 
 .none {
   display: none;
