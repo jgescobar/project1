@@ -32,6 +32,7 @@ function stateOfGame() {
                   board[6][i]
                   );
   }
+   console.log("");
 }
 
 // Alternate Player
@@ -89,7 +90,6 @@ function move(columnIndex) {
     img = "url(images/scaredPug2.jpeg)";
   }
   for (var i = 5; i>=0; i -= 1) {
-    // for (var x = 0; x < 7; x += 1) {
     if(board[columnIndex][i] === null){
       lastNullCell = i;
       break;
@@ -105,21 +105,45 @@ function move(columnIndex) {
   alternateTurn();
  }
 
-// // Win Conditions
-// function chkWinner(board) {
-//     // Check up/down
-//     for (var y = 0; y < 3; y+= 1) {
-//         for (var x = 0; x < 7; x+= 1) {
-//             if (board[y][x] === board[y+1][x] && board[y][x] === board[y+2][x] && board[y][x] === board[y+3][x]){
-//               console.log("up down works");
-//                 return true;
-//           } else {
-//             return result;
-//           }
-//         }
-//       }
-//     };
+function checkline () {
+ if ((a != 0) && (a === b) && (a === c) && (a === d)) {
+     return true;
+  } else return false;
+}
 
+// or
+
+// function catMath ()
+//   if total in a row === 4 ||
+//     total in a column === 4 ||
+//     total diagonal ascending === 4 ||
+//     total diagonal descending === 4
+//     return cat wins;
+
+//       otherwise
+
+// function dogMath()
+//   if total in a row === -4 ||
+//       total in a column === -4 ||
+//   total diagonal ascending === -4 ||
+//   total diagonal descending === -4
+//     return dog wins;
+
+
+
+// // Win Conditions
+function checkWinner(board) {
+    // Check up/down
+    for (var i = 0; i < 3; i+= 1) {
+        // for (var x = 0; x < 7; x+= 1) {
+            if (board[columnIndex][i] === board[columnIndex+1][i] && board[columnIndex][i] === board[columnIndex+2][i] && board[columnIndex][i] === board[columnIndex+3][i]){
+              console.log("up down works");
+                won = true;
+          } else {
+            // check the next loop;
+          }
+        } checkline();
+    };
 //    // Check left/right
 //     for (var y = 0; y < 6; y+= 1) {
 //         for ( var x = 0; x < 4; x+= 1) {
@@ -132,17 +156,17 @@ function move(columnIndex) {
 //     // Check down-right
 //     for (y = 0; y < 3; y++)
 //         for (x = 0; x < 4; x++)
-//             if (chkLine(board[y][x], board[y+1][x+1], board[y+2][x+2], board[y+3][x+3]))
+//             if (chekLine(board[y][x], board[y+1][x+1], board[y+2][x+2], board[y+3][x+3]))
 //                 return board[y][x];
 
 //     // Check down-left
 //     for (y = 3; y < 6; y++)
 //         for (x = 0; x < 4; x++)
-//             if (chkLine(board[y][x], board[y-1][x+1], board[y-2][x+2], board[y-3][x+3]))
+//             if (chekLine(board[y][x], board[y-1][x+1], board[y-2][x+2], board[y-3][x+3]))
 //                 return board[y][x];
 
 //           return 0;
-//           chkLine();
+//           checkLine();
 // }
 
 // when this function is called, it changes pages
