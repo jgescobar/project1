@@ -1,30 +1,38 @@
 #Connect Cuatro
 
-The way you play my game is you click on the column you want the dog or cat to fall in and then you have to match four. 
+![alt text] (https://i.imgur.com/vWidiQU.png)
 
 	Step One:
-    	Click on "Let's Play"
+    Click on "Let's Play"
 
 	Step Two:
-    	Player 1 starts aka "Cat"
-    	after Cat has made its move, 
-    	Player 2 starts aka "Dog".
+    Player 1 starts aka "Cat"
+    after Cat has made its move.. 
 
 	Step Three:
-    There is no step three because my check winner function never checked out. 
+    Player 2 starts aka "Dog".
 
-	In conclusion:
-    Just click anything you want until the entire board gets full. 
-    Both "Cat" and "Dog" are winners because in my world, they are both winners. 
+	Step Four:
+    First player to connect four in a row wins! 
 
     THE END! 
 
 
 
-HTML 
-I broke my pages into three sections instead of divs. The first section I made my table with all the cells I needed to represent my board. There were forty two total. My board was a seven by six board with six "td". I named my cell indexes by the (x,y) cordinates but later when i was working on my javaScript, I realized I should have started with the y axis as it helped keep track of the way i was calling the cells in my nested array for my winner functions and move function. I'll elaborate more on that when I get to javaScript. The second section on my html was so I could display the catVSdog image once the player clicks on the "let's play" button. I ran into my first issue here because the way I had originally set my sections up, I had the table at the bottom and my title page all the way at the begining of my body section. This was affecting the way my title looked while I tested out the aesthetics of my game. The section that preceded my first section of "Title page" was crossing into the title of my game. In other words, my last page which notified when the winner has won, was seeping into the title page of "Connect Cuatro,". I was able to trouble shoot this issue when I rearranged the location of where I had set my sections. 
-
- I used a div for separating my first header. I included my "Let's Play" button inside of that same div. Lastly, I made a section for winner page where it displays a restart button to allow the player to play again. 
+##HTML
  
-[trello](https://trello.com/b/uiBkE54X/project)
-![alt text] (https://i.imgur.com/vWidiQU.png)
+I broke my pages into three sections instead of divs. The first section I made my table with all the cells I needed to represent my board. There were forty two total. My board was a seven by six board with six "td". I named my cell indexes by the (x,y) coordinates but later when i was working on my javaScript, I realized I should have started with the y axis as it helped keep track of the way i was seeing the cells on my board. The second section on my html was so I could display the catVSdog image once the player clicks on the "let's play" button. 
+I used a div for separating my first header. I included my "Let's Play" button inside of that same div. Lastly, I made a section for winner pFage where it displays a restart button to allow the player to play again. 
+
+##CSS
+I used this section for styling my game. This is where I had fun. 
+
+##javaScript
+
+Where should I start, oh yes... this was where the headaches really came out. I used a combination of jQuery and DOM elements. For somethings like even listeners I found it easier to just work with the Dom. For other issues, I really liked jQuery. When It came to adding images I mainly used jQuery. Also, my board array was mainly based off column then rows as opposed to rows then columns, in other words it looks like this board[column][row]. I decided to use math to compute who won since I had set my cat to 1 and dog to -1. So which ever would return 4 or -4 would be the winner. I also made a render() so I could change pages. 
+
+Bellow is the link to my user stories on Trello:
+ 
+[Ta Ta TA Trello](https://trello.com/b/uiBkE54X/project)
+ 
+

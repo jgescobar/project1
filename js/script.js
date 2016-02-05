@@ -35,7 +35,7 @@ function stateOfGame() {
    console.log("");
 }
 
-// Alternate Player
+// Alternates Player
 function alternateTurn() {
   if (currentPlayer === cat) {
     currentPlayer = dog;
@@ -45,13 +45,13 @@ function alternateTurn() {
   stateOfGame();
 }
 
-// this is my listener and also converts "celly_x" string to number value
+// this is my cell click listener and also converts "celly_x" string to number value
 $(".cells").on("click", function(evt) {
   move($(this).attr('id').charAt(4));
 });
 
 
-// this displays the cat vs dog img once start button is clicked
+// this displays the cat VS dog img once start button is clicked
 function showImage() {
      curPage = 'cat-dog-page';
      $('#cat-dog-page').delay(1000).fadeOut();
@@ -134,8 +134,8 @@ function move(columnIndex) {
   }
  }
 
-// REMEMBER!!!:  the first index is the COLUMN, not the ROW
-// therefore it looks like this  board[col][row]
+// first index is the COLUMN, not the ROW
+// looks like this  board[col][row]
 
 
 function checkWinner() {
@@ -185,12 +185,6 @@ function checkWinner() {
   }
   return 0;
 }
-
-//     // Check down-left
-//     for (y = 3; y < 6; y++)
-//         for (x = 0; x < 4; x++)
-//             if (chekLine(board[y][x], board[y-1][x+1], board[y-2][x+2], board[y-3][x+3]))
-//                 return board[y][x];
 
 // when this function is called, it changes pages
 function render () {
