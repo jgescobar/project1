@@ -22,7 +22,7 @@ var dog = -1;
 
 // // Helps see State of Game - Print the Board
 function stateOfGame() {
-  for (var i = 5; i >= 0; i -= 1) {
+  for (var i = 0; i < 6; i += 1) {
       console.log(board[0][i],
                   board[1][i],
                   board[2][i],
@@ -57,11 +57,18 @@ function showImage() {
      $('#cat-dog-page').delay(1000).fadeOut();
      render();
      startGame();
+     renderClearBoard();
 }
 document.getElementById("start")
         .addEventListener("click", function(evt) {
           showImage();
         });
+
+document.getElementById("restart")
+        .addEventListener("click", function(evt) {
+          showImage();
+        });
+
 
 // Start/restart the game
 function startGame() {
@@ -84,7 +91,7 @@ function startGame() {
 // Places Move on Board
 function move(columnIndex) {
   var lastNullCell = undefined;
-  if (currentPlayer === 1) {
+  if (currentPlayer === cat) {
     var img = "url(images/fightkitty.jpg)";
   } else {
     img = "url(images/pug.jpeg)";
@@ -103,9 +110,25 @@ function move(columnIndex) {
   }
   winner = checkWinner();
   if (winner === cat) {
-    alert('cat wins!');
+
+    $('#winner-page').css("zIndex", 10);
+    $('#winner-page').css("display", 'block');
+    $('#winner-page').css("background", "url(images/pewpew.jpg)");
+    $('#meow').get(0).play();
+    // setTimeout(function () {
+    //   location.reload();
+    // },2000)
+
   } else if (winner === dog) {
-    alert('dog wins!');
+    $('#winner-page').css("zIndex", 10);
+    $('#winner-page').css("display", 'block');
+    $('#winner-page').css("background", "url(images/happypug.jpg)");
+    $('#bark').get(0).play();
+    // setTimeout(function () {
+    //   location.reload();
+    // },2000)
+
+
   } else {
     alternateTurn();
   }
@@ -140,7 +163,7 @@ function checkWinner() {
     }
   }
 
-// check diagnol ascending
+// // check diagnol descending (working)
   for (var row = 0; row < 3; row += 1) {
     for (var col = 0; col < 4; col += 1) {
       var sum = board[col][row] + board[col+1][row+1] +
@@ -150,10 +173,10 @@ function checkWinner() {
       }
     }
   }
-  // check diagnol descending
+  // check diagnol ascending (not working)
   for (var row = 0; row < 3; row += 1) {
     for (var col = 0; col < 4; col += 1) {
-      var sum = board[col][row] + board[col+1][row+1] +
+      var sum = board[col][row] + board[col][row+1] +
         board[col+2][row+2] + board[col+3][row+3];
       if (sum === 4 || sum === -4) {
         return board[col][row];
@@ -175,7 +198,9 @@ function render () {
   curPage === 'cat-dog-page' ? $('#cat-dog-page').show() : $('#cat-dog-page').hide();
   curPage === 'winner-page' ? $('#winner-page').show() : $('#winner-page').hide();
 }
-
+function renderClearBoard () {
+  $('td').css("background", "none");
+}
 
 
 

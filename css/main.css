@@ -29,7 +29,9 @@ section {
 }
 
 #winner-page {
-  display: none;
+  z-index: -5;
+  background-repeat: no-repeat;
+/*display: none;*/
 }
 
 .board {
@@ -80,7 +82,7 @@ td {
 }
 
 .congrats {
-  display: none;
+  z-index: 10px;
 }
 
 #start {
