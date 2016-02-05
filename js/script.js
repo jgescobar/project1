@@ -3,16 +3,16 @@ console.log("Linked!");
 var curPage;
 
 var board = [
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null]
-  ];
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null]
+];
 
-var won = false;
+var winner = 0;
 
 var currentPlayer = cat;
 
@@ -37,10 +37,10 @@ function stateOfGame() {
 
 // Alternate Player
 function alternateTurn() {
-  if (currentPlayer === 1) {
-    currentPlayer = -1;
+  if (currentPlayer === cat) {
+    currentPlayer = dog;
   } else {
-    currentPlayer = 1;
+    currentPlayer = cat;
   }
   stateOfGame();
 }
@@ -75,7 +75,7 @@ function startGame() {
     [null, null, null, null, null, null]
   ];
   won = false;
-  currentPlayer = 1;
+  currentPlayer = cat;
   cat = 1
   dog = -1
   curPage;
@@ -99,75 +99,75 @@ function move(columnIndex) {
   board[columnIndex][lastNullCell] = currentPlayer;
   if (lastNullCell === undefined) {
     alert("column full click again");
-
     return;
   }
-  alternateTurn();
+  winner = checkWinner();
+  if (winner === cat) {
+    alert('cat wins!');
+  } else if (winner === dog) {
+    alert('dog wins!');
+  } else {
+    alternateTurn();
+  }
  }
 
-function checkline () {
- if ((a != 0) && (a === b) && (a === c) && (a === d)) {
-     return true;
-  } else return false;
+// REMEMBER!!!:  the first index is the COLUMN, not the ROW
+// therefore it looks like this  board[col][row]
+
+
+function checkWinner() {
+  // return cat, dog or 0
+
+  // check horizontal winner
+  for (var row = 0; row < board[0].length; row += 1) {
+    for (var col = 0; col < 4; col += 1) {
+      var sum = board[col][row] + board[col+1][row] +
+        board[col+2][row] + board[col+3][row];
+      if (sum === 4 || sum === -4) {
+        return board[col][row];
+      }
+    }
+  }
+
+  // check vertical winner
+  for (var row = 0; row < 3; row += 1) {
+    for (var col = 0; col < board.length; col += 1) {
+      var sum = board[col][row] + board[col][row+1] +
+        board[col][row+2] + board[col][row+3];
+      if (sum === 4 || sum === -4) {
+        return board[col][row];
+      }
+    }
+  }
+
+// check diagnol ascending
+  for (var row = 0; row < 3; row += 1) {
+    for (var col = 0; col < 4; col += 1) {
+      var sum = board[col][row] + board[col+1][row+1] +
+        board[col+2][row+2] + board[col+3][row+3];
+      if (sum === 4 || sum === -4) {
+        return board[col][row];
+      }
+    }
+  }
+  // check diagnol descending
+  for (var row = 0; row < 3; row += 1) {
+    for (var col = 0; col < 4; col += 1) {
+      var sum = board[col][row] + board[col+1][row+1] +
+        board[col+2][row+2] + board[col+3][row+3];
+      if (sum === 4 || sum === -4) {
+        return board[col][row];
+      }
+    }
+  }
+  return 0;
 }
-
-// or
-
-// function catMath ()
-//   if total in a row === 4 ||
-//     total in a column === 4 ||
-//     total diagonal ascending === 4 ||
-//     total diagonal descending === 4
-//     return cat wins;
-
-//       otherwise
-
-// function dogMath()
-//   if total in a row === -4 ||
-//       total in a column === -4 ||
-//   total diagonal ascending === -4 ||
-//   total diagonal descending === -4
-//     return dog wins;
-
-
-
-// // Win Conditions
-function checkWinner(board) {
-    // Check up/down
-    for (var i = 0; i < 3; i+= 1) {
-        // for (var x = 0; x < 7; x+= 1) {
-            if (board[columnIndex][i] === board[columnIndex+1][i] && board[columnIndex][i] === board[columnIndex+2][i] && board[columnIndex][i] === board[columnIndex+3][i]){
-              console.log("up down works");
-                won = true;
-          } else {
-            // check the next loop;
-          }
-        } checkline();
-    };
-//    // Check left/right
-//     for (var y = 0; y < 6; y+= 1) {
-//         for ( var x = 0; x < 4; x+= 1) {
-//           if (board[y][x] === board[y][x+1] && board[y][x] === board[y][x+2] && board[y][x] === board[y][x+3])
-//             console.log("left/right works");
-//                  return board[y][x];
-//           }
-//       };
-
-//     // Check down-right
-//     for (y = 0; y < 3; y++)
-//         for (x = 0; x < 4; x++)
-//             if (chekLine(board[y][x], board[y+1][x+1], board[y+2][x+2], board[y+3][x+3]))
-//                 return board[y][x];
 
 //     // Check down-left
 //     for (y = 3; y < 6; y++)
 //         for (x = 0; x < 4; x++)
 //             if (chekLine(board[y][x], board[y-1][x+1], board[y-2][x+2], board[y-3][x+3]))
 //                 return board[y][x];
-
-//           return 0;
-//           checkLine();
-// }
 
 // when this function is called, it changes pages
 function render () {
